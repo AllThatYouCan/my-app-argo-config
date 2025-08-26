@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+  labels:
+    app: spring-boot-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+      - name: spring-boot-app
+        image: catalog-service:0.0.1-SNAPSHOT  # Replace with your image name and tag
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          value: "mongodb://admin:password@mongodb:27017/your-database?authSource=admin"
+        # Add other environment variables as needed
+#        resources:
+#          requests:
+#            memory: "256Mi"
+#            cpu: "250m"
+#          limits:
+#            memory: "512Mi"
+#            cpu: "500m"
+#        livenessProbe:
+#          httpGet:
+#            path: /actuator/health
+#            port: 8080
+#          initialDelaySeconds: 30
+#          periodSeconds: 10
+#        readinessProbe:
+#          httpGet:
+#            path: /actuator/health
+#            port: 8080
+#          initialDelaySeconds: 20
+#          periodSeconds: 5
