@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: git@github.com:AllThatYouCan/my-app-argo-config.git
     targetRevision: main
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: game-registry
