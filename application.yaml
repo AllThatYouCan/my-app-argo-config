@@ -6,7 +6,7 @@ metadata:
 spec:
   project: game-registry
   source:
-    repoURL: git@github.com:AllThatYouCan/my-app-argo-config.git
+    repoURL: https://github.com/AllThatYouCan/my-app-argo-config.git
     targetRevision: master
     path: .
   destination:
